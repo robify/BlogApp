@@ -1,0 +1,13 @@
+.FeaturedPost {
+    height: 100%;
+    display: flex;   /* Flex is more flexible than CSS Grid and better for smaller components */
+    align-items: flex-start;
+}
+
+.content {
+    padding: 10px;
+}
+
+.playArtist {
+    margin-bottom: 20px;
+}

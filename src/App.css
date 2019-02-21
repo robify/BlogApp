@@ -1,33 +1,97 @@
-.App {
-  text-align: center;
-}
+/*App.css*/
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  margin: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+  display: grid;        /* Sets the element to grid mode */
+  grid-template-columns: 2fr 1fr;  /*  We want 2 columns, with the first column 2/3 of the space */
+  grid-column-gap: 20px;         /* give us 20px margin between columns */
+  grid-template-rows: 1fr 2fr 3fr 2fr 1fr;  /*5 rows, little on top and bottom, larger in middle*/       
+  grid-row-gap: 20px;
+  justify-items: stretch;
+  align-items: stretch;
+  height: 100vh;        /*  vh lets you always make the container full screen height. So EASY! */
+  max-width: 1600px;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  grid-column: 1/1;         /* put the header only in the first column */
 }
 
-.App-link {
-  color: #61dafb;
+.featuredPost {
+  grid-column: 1/1;        /*  put the featured post only in the first column*/
+  grid-row: 2/4;        /* spread featured post over row 2 and row 3 (stop at row 4) */
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.spotifyPlayer {
+grid-column: 2/3;         /* put the player in the second column */
+grid-row: 2/5;         /*  spread the player over rows 2, 3, and 4 (stopping at edge of 5)*/           
+}
+
+.otherPosts {
+  grid-column: 1/1;         /*  put other posts in first column*/
+  grid-row-start: 4;         /* other posts is only 1 row tall, just the the 4th row */       
+}
+
+.footer {
+  grid-column: 1/3;    /* spread footer across cols 1 and 2. (start at 1, end where 3 would be)*/
+  grid-row-start: 5;    /* put footer in the 5th row (starting at row 4 edge) */
+  max-width:800px    /* offsets our footer to the left on big screens and looks classy */
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 800px) {
+
+.App {
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 2fr 1fr;
+  grid-row-gap: 20px;
+  justify-items: stretch;
+  align-items: stretch;
+  height: auto;
+  /*height: 100vh;*/
+  max-width: 1600px;
+  overflow: auto;
+}
+
+.App-header {
+  grid-column: 1/1;
+  grid-row: 1/1;
+}
+
+.featuredPost {
+  grid-column: 1/1;
+  grid-row: 2/3;
+}
+
+.spotifyPlayer {
+grid-column: 1/1;
+grid-row: 3/4;
+}
+
+.otherPosts {
+  grid-column: 1/1;
+  grid-row-start: 4/5;
+}
+
+.footer {
+  grid-column: 1/1;
+  grid-row-start: 5/6;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
 }
